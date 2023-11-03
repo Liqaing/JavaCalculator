@@ -53,7 +53,22 @@ public class Calculator implements ActionListener {
         funcButton[6] = delButton;
         funcButton[7] = clrButton;
 
+        for (JButton button : funcButton) {
+            // Add action listener to button
+            button.addActionListener(this);
+            button.setFont(myFont);
+            button.setFocusable(false);
+        }
 
+        // Set up number button
+        for (int i = 0, len = numButton.length; i < len; i++) {
+            // Instantiate JButton and assign it to numButton array, Display value of i in button
+            numButton[i] = new JButton(String.valueOf(i));
+            // Add action listener to button
+            numButton[i].addAncestorListener(this);
+            numButton[i].setFont(myFont);
+            numButton[i].setFocusable(false);
+        }
 
         frame.setVisible(true);
 
