@@ -157,5 +157,14 @@ public class Calculator implements ActionListener {
             operator = '-';
             textField.setText("");
         }
+
+        // If the mul button was clicked
+        if (e.getSource() == mulButton) {
+            num1 = Double.parseDouble(textField.getText());
+            operator = '*';
+            textField.setText("");
+        }
+
+
     }
 }
