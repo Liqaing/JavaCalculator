@@ -74,13 +74,17 @@ public class Calculator implements ActionListener {
         // Delete and Clear button is not in the grid layout on the frame
         // Set up separate bound for both button
         delButton.setBounds(50, 430, 130, 50);
-        clrButton.setBounds(205, 430, 130, 50);
+        clrButton.setBounds(220, 430, 130, 50);
         frame.add(delButton);
         frame.add(clrButton);
 
-
-
-
+        // Set up panel
+        panel = new JPanel(); // Create panel obj
+        panel.setBounds(50, 100, 300, 300); // Set up width, height and location for panel
+        // Set panel layout to grid
+        // Set rows and cols to 4 by 4, and add space on the side
+        panel.setLayout(new GridLayout(4, 4, 10, 10));
+        frame.add(panel);
 
         frame.setVisible(true);
 
