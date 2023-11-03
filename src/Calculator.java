@@ -16,7 +16,7 @@ public class Calculator implements ActionListener {
     Font myFont = new Font("serif", Font.BOLD, 25);
 
     double num1 = 0, num2 = 0, result = 0;
-    char operation; // Hold operation such as + - * /
+    char operator; // Hold operator such as + - * /
 
     public Calculator() {
         // Set up window frame
@@ -135,10 +135,22 @@ public class Calculator implements ActionListener {
             }
         }
 
-        // If the decimal button was click
+        // If the decimal button was clicked
         if (e.getSource() == decButton) {
             // Update textField
             textField.setText(textField.getText().concat("."));
         }
+
+        // If the add button was clicked
+        if (e.getSource() == addButton) {
+            // Convert value in textField to double and store inside num1
+            num1 = Double.parseDouble(textField.getText());
+            // Set operator to +
+            operator = '+';
+            // Clear text field
+            textField.setText("");
+        }
+
+
     }
 }
