@@ -151,6 +151,11 @@ public class Calculator implements ActionListener {
             textField.setText("");
         }
 
-
+        // If the sub button was clicked
+        if (e.getSource() == subButton) {
+            num1 = Double.parseDouble(textField.getText());
+            operator = '-';
+            textField.setText("");
+        }
     }
 }
