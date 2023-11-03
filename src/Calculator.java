@@ -165,6 +165,11 @@ public class Calculator implements ActionListener {
             textField.setText("");
         }
 
-
+        // If the div button was clicked
+        if (e.getSource() == divButton) {
+            num1 = Double.parseDouble(textField.getText());
+            operator = '/';
+            textField.setText("");
+        }
     }
 }
