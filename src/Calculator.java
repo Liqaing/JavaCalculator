@@ -7,8 +7,8 @@ public class Calculator implements ActionListener {
 
     JFrame frame;
     JTextField textField;
-    JButton[] numButton = new JButton[10]; // Hold number 0 - 9
-    JButton[] funcButton = new JButton[8]; // Hold + - * / ...
+    JButton[] numButtons = new JButton[10]; // Hold number 0 - 9
+    JButton[] funcButtons = new JButton[8]; // Hold + - * / ...
     JButton addButton, subButton, mulButton, divButton,
             decButton, equButton, delButton, clrButton;
     JPanel panel;
@@ -45,16 +45,16 @@ public class Calculator implements ActionListener {
         clrButton = new JButton("Clear");
 
         // Add button to funcButton array
-        funcButton[0] = addButton;
-        funcButton[1] = subButton;
-        funcButton[2] = mulButton;
-        funcButton[3] = divButton;
-        funcButton[4] = decButton;
-        funcButton[5] = equButton;
-        funcButton[6] = delButton;
-        funcButton[7] = clrButton;
+        funcButtons[0] = addButton;
+        funcButtons[1] = subButton;
+        funcButtons[2] = mulButton;
+        funcButtons[3] = divButton;
+        funcButtons[4] = decButton;
+        funcButtons[5] = equButton;
+        funcButtons[6] = delButton;
+        funcButtons[7] = clrButton;
 
-        for (JButton button : funcButton) {
+        for (JButton button : funcButtons) {
             // Add action listener to button
             button.addActionListener(this);
             button.setFont(myFont);
@@ -62,13 +62,13 @@ public class Calculator implements ActionListener {
         }
 
         // Set up number button
-        for (int i = 0, len = numButton.length; i < len; i++) {
+        for (int i = 0, len = numButtons.length; i < len; i++) {
             // Instantiate JButton and assign it to numButton array, Display value of i in button
-            numButton[i] = new JButton(String.valueOf(i));
+            numButtons[i] = new JButton(String.valueOf(i));
             // Add action listener to button
-            numButton[i].addActionListener(this);
-            numButton[i].setFont(myFont);
-            numButton[i].setFocusable(false);
+            numButtons[i].addActionListener(this);
+            numButtons[i].setFont(myFont);
+            numButtons[i].setFocusable(false);
         }
 
         // Delete and Clear button is not in the grid layout on the frame
@@ -84,6 +84,33 @@ public class Calculator implements ActionListener {
         // Set panel layout to grid
         // Set rows and cols to 4 by 4, and add space on the side
         panel.setLayout(new GridLayout(4, 4, 10, 10));
+
+        // Add button to the panel
+        // row 1
+        panel.add(numButtons[0]);
+        panel.add(numButtons[1]);
+        panel.add(numButtons[2]);
+        panel.add(funcButtons[0]);
+
+        // row 2
+        panel.add(numButtons[3]);
+        panel.add(numButtons[4]);
+        panel.add(numButtons[5]);
+        panel.add(funcButtons[1]);
+
+        // row 3
+        panel.add(numButtons[6]);
+        panel.add(numButtons[7]);
+        panel.add(numButtons[8]);
+        panel.add(funcButtons[2]);
+
+        // row 4
+        panel.add(funcButtons[4]);
+        panel.add(numButtons[9]);
+        panel.add(funcButtons[5]);
+        panel.add(funcButtons[3]);
+
+        // add panel to frame
         frame.add(panel);
 
         frame.setVisible(true);
