@@ -196,5 +196,10 @@ public class Calculator implements ActionListener {
             // Update num1 to result, to continue using result for next calculation
             num1 = result;
         }
+
+        // If the clear button was clicked
+        if (e.getSource() == clrButton) {
+            textField.setText("");
+        }
     }
 }
