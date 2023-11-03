@@ -13,7 +13,7 @@ public class Calculator implements ActionListener {
             decButton, equButton, delButton, clrButton;
     JPanel panel;
 
-    Font myFont = new Font("serif", Font.BOLD, 30);
+    Font myFont = new Font("serif", Font.BOLD, 25);
 
     double num1 = 0, num2 = 0, result = 0;
     char operation; // Hold operation such as + - * /
@@ -31,6 +31,7 @@ public class Calculator implements ActionListener {
         textField.setBounds(50, 25, 300, 50);
         textField.setFont(myFont);
         textField.setEditable(false);
+        textField.setFocusable(false);
         frame.add(textField);
 
         // Create bottom obj
@@ -40,8 +41,8 @@ public class Calculator implements ActionListener {
         divButton = new JButton("/");
         decButton = new JButton(".");
         equButton = new JButton("=");
-        delButton = new JButton("delete");
-        clrButton = new JButton("clear");
+        delButton = new JButton("Delete");
+        clrButton = new JButton("Clear");
 
         // Add button to funcButton array
         funcButton[0] = addButton;
@@ -65,10 +66,21 @@ public class Calculator implements ActionListener {
             // Instantiate JButton and assign it to numButton array, Display value of i in button
             numButton[i] = new JButton(String.valueOf(i));
             // Add action listener to button
-            numButton[i].addAncestorListener(this);
+            numButton[i].addActionListener(this);
             numButton[i].setFont(myFont);
             numButton[i].setFocusable(false);
         }
+
+        // Delete and Clear button is not in the grid layout on the frame
+        // Set up separate bound for both button
+        delButton.setBounds(50, 430, 130, 50);
+        clrButton.setBounds(205, 430, 130, 50);
+        frame.add(delButton);
+        frame.add(clrButton);
+
+
+
+
 
         frame.setVisible(true);
 
