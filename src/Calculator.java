@@ -87,26 +87,26 @@ public class Calculator implements ActionListener {
 
         // Add button to the panel
         // row 1
-        panel.add(numButtons[0]);
         panel.add(numButtons[1]);
         panel.add(numButtons[2]);
+        panel.add(numButtons[3]);
         panel.add(funcButtons[0]);
 
         // row 2
-        panel.add(numButtons[3]);
         panel.add(numButtons[4]);
         panel.add(numButtons[5]);
+        panel.add(numButtons[6]);
         panel.add(funcButtons[1]);
 
         // row 3
-        panel.add(numButtons[6]);
         panel.add(numButtons[7]);
         panel.add(numButtons[8]);
+        panel.add(numButtons[9]);
         panel.add(funcButtons[2]);
 
         // row 4
         panel.add(funcButtons[4]);
-        panel.add(numButtons[9]);
+        panel.add(numButtons[0]);
         panel.add(funcButtons[5]);
         panel.add(funcButtons[3]);
 
@@ -126,5 +126,19 @@ public class Calculator implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        // Loop through every button in the array
+        for (JButton button: numButtons) {
+            // Check if the element that trigger the event is the current button
+            if (e.getSource() == button) {
+                // Update textField to textField + number which the button is holding
+                textField.setText(textField.getText().concat(button.getText()));
+            }
+        }
+
+        // If the decimal button was click
+        if (e.getSource() == decButton) {
+            // Update textField
+            textField.setText(textField.getText().concat("."));
+        }
     }
 }
