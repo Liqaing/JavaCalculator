@@ -19,7 +19,15 @@ public class Calculator implements ActionListener {
     char operation; // Hold operation such as + - * /
 
     public Calculator() {
+        // Set up window frame
+        frame = new JFrame("Calculator");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Dimension minimumSize = new Dimension(420, 550);
+        frame.setMinimumSize(minimumSize);
+        frame.setLayout(null);
 
+
+        frame.setVisible(true);
 
     }
 
