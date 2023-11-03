@@ -171,5 +171,30 @@ public class Calculator implements ActionListener {
             operator = '/';
             textField.setText("");
         }
+
+        // If the equal button was clicked
+        if (e.getSource() == equButton) {
+            // Retrieve value for num2
+            num2 = Double.parseDouble(textField.getText());
+            // Check which operator was clicked
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+            }
+            // Update text field to result
+            textField.setText(String.valueOf(result));
+            // Update num1 to result, to continue using result for next calculation
+            num1 = result;
+        }
     }
 }
