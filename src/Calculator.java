@@ -26,6 +26,13 @@ public class Calculator implements ActionListener {
         frame.setMinimumSize(minimumSize);
         frame.setLayout(null);
 
+        // Set up Text field
+        textField = new JTextField();
+        textField.setBounds(50, 25, 300, 50);
+        textField.setFont(myFont);
+        textField.setEditable(false);
+        frame.add(textField);
+
 
         frame.setVisible(true);
 
