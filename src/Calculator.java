@@ -183,6 +183,15 @@ public class Calculator implements ActionListener {
             }
         }
 
+        // If the negate button was clicked
+        if (e.getSource() == negButton) {
+            if (!textField.getText().isEmpty()) {
+                double value = Double.parseDouble(textField.getText());
+                value *= -1;
+                textField.setText(String.valueOf(value));
+            }
+        }
+
         // If the equal button was clicked
         if (e.getSource() == equButton) {
             // Retrieve value for num2
