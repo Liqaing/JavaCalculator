@@ -84,8 +84,8 @@ public class Calculator implements ActionListener {
         panel = new JPanel(); // Create panel obj
         panel.setBounds(50, 100, 300, 300); // Set up width, height and location for panel
         // Set panel layout to grid
-        // Set rows and cols to 4 by 4, and add space on the side
-        panel.setLayout(new GridLayout(4, 4, 10, 10));
+        // Set rows and cols to 5 by 4, and add space on the side
+        panel.setLayout(new GridLayout(5, 4, 10, 10));
 
         // Add button to the panel
         // row 1
