@@ -201,5 +201,15 @@ public class Calculator implements ActionListener {
         if (e.getSource() == clrButton) {
             textField.setText("");
         }
+
+        // If the delete button was clicked
+        if (e.getSource() == delButton) {
+            // Retrieve the current value from textField
+            String value = textField.getText();
+            // Set textField to sub string of value from 0 to length of string - 1
+            if (!value.isEmpty()) {
+                textField.setText(value.substring(0, value.length()-1));
+            }
+        }
     }
 }
