@@ -200,6 +200,15 @@ public class Calculator implements ActionListener {
             }
         }
 
+        // If the sqrt button was clicked
+        if (e.getSource() == sqrtButton) {
+            if (!textField.getText().isEmpty()) {
+                num1 = Double.parseDouble(textField.getText());
+                num1 = Math.sqrt(num1);
+                textField.setText(String.valueOf(num1));
+            }
+        }
+
         // If the equal button was clicked
         if (e.getSource() == equButton) {
             // Retrieve value for num2
