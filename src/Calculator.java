@@ -126,6 +126,7 @@ public class Calculator implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        // If numButtons is click
         // Loop through every button in the array
         for (JButton button: numButtons) {
             // Check if the element that trigger the event is the current button
@@ -144,11 +145,13 @@ public class Calculator implements ActionListener {
         // If the add button was clicked
         if (e.getSource() == addButton) {
             // Convert value in textField to double and store inside num1
-            num1 = Double.parseDouble(textField.getText());
-            // Set operator to +
-            operator = '+';
-            // Clear text field
-            textField.setText("");
+            if (!textField.getText().isEmpty()) {
+                num1 = Double.parseDouble(textField.getText());
+                // Set operator to +
+                operator = '+';
+                // Clear text field
+                textField.setText("");
+            }
         }
 
         // If the sub button was clicked
@@ -199,6 +202,9 @@ public class Calculator implements ActionListener {
 
         // If the clear button was clicked
         if (e.getSource() == clrButton) {
+            num1 = 0;
+            num2 = 0;
+            result = 0;
             textField.setText("");
         }
 
