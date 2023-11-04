@@ -156,29 +156,37 @@ public class Calculator implements ActionListener {
 
         // If the sub button was clicked
         if (e.getSource() == subButton) {
-            num1 = Double.parseDouble(textField.getText());
-            operator = '-';
-            textField.setText("");
+            if (!textField.getText().isEmpty()) {
+                num1 = Double.parseDouble(textField.getText());
+                operator = '-';
+                textField.setText("");
+            }
         }
 
         // If the mul button was clicked
         if (e.getSource() == mulButton) {
-            num1 = Double.parseDouble(textField.getText());
-            operator = '*';
-            textField.setText("");
+            if (!textField.getText().isEmpty()) {
+                num1 = Double.parseDouble(textField.getText());
+                operator = '*';
+                textField.setText("");
+            }
         }
 
         // If the div button was clicked
         if (e.getSource() == divButton) {
-            num1 = Double.parseDouble(textField.getText());
-            operator = '/';
-            textField.setText("");
+            if (!textField.getText().isEmpty()) {
+                num1 = Double.parseDouble(textField.getText());
+                operator = '/';
+                textField.setText("");
+            }
         }
 
         // If the equal button was clicked
         if (e.getSource() == equButton) {
             // Retrieve value for num2
-            num2 = Double.parseDouble(textField.getText());
+            if (!textField.getText().isEmpty()) {
+                num2 = Double.parseDouble(textField.getText());
+            }
             // Check which operator was clicked
             switch (operator) {
                 case '+':
@@ -193,11 +201,14 @@ public class Calculator implements ActionListener {
                 case '/':
                     result = num1 / num2;
                     break;
+                default:
+                    break;
             }
             // Update text field to result
             textField.setText(String.valueOf(result));
             // Update num1 to result, to continue using result for next calculation
             num1 = result;
+
         }
 
         // If the clear button was clicked
