@@ -8,9 +8,9 @@ public class Calculator implements ActionListener {
     JFrame frame;
     JTextField textField;
     JButton[] numButtons = new JButton[10]; // Hold number 0 - 9
-    JButton[] funcButtons = new JButton[8]; // Hold + - * / ...
+    JButton[] funcButtons = new JButton[9]; // Hold + - * / ...
     JButton addButton, subButton, mulButton, divButton,
-            decButton, equButton, delButton, clrButton;
+            decButton, equButton, delButton, clrButton, negButton;
     JPanel panel;
 
     Font myFont = new Font("serif", Font.BOLD, 25);
@@ -43,6 +43,7 @@ public class Calculator implements ActionListener {
         equButton = new JButton("=");
         delButton = new JButton("Delete");
         clrButton = new JButton("Clear");
+        negButton = new JButton("(-)");
 
         // Add button to funcButton array
         funcButtons[0] = addButton;
@@ -53,6 +54,7 @@ public class Calculator implements ActionListener {
         funcButtons[5] = equButton;
         funcButtons[6] = delButton;
         funcButtons[7] = clrButton;
+        funcButtons[8] = negButton;
 
         for (JButton button : funcButtons) {
             // Add action listener to button
