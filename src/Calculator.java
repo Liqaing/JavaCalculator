@@ -7,10 +7,10 @@ public class Calculator implements ActionListener {
 
     JFrame frame;
     JTextField textField;
-    JButton[] numButtons = new JButton[10]; // Hold number 0 - 9
-    JButton[] funcButtons = new JButton[9]; // Hold + - * / ...
-    JButton addButton, subButton, mulButton, divButton,
-            decButton, equButton, delButton, clrButton, negButton;
+    JButton[] numButtons = new JButton[10]; // Hold number button from 0 to 9
+    JButton[] funcButtons = new JButton[10]; // Hold function button + - * / ...
+    JButton addButton, subButton, mulButton, divButton, negButton,
+            decButton, equButton, delButton, clrButton, sqrtButton;
     JPanel panel;
 
     Font myFont = new Font("serif", Font.BOLD, 25);
@@ -41,9 +41,10 @@ public class Calculator implements ActionListener {
         divButton = new JButton("/");
         decButton = new JButton(".");
         equButton = new JButton("=");
-        delButton = new JButton("Delete");
-        clrButton = new JButton("Clear");
-        negButton = new JButton("(-)");
+        delButton = new JButton("De");
+        clrButton = new JButton("Cl");
+        negButton = new JButton("+/-");
+        sqrtButton = new JButton("√");
 
         // Add button to funcButton array
         funcButtons[0] = addButton;
@@ -55,6 +56,7 @@ public class Calculator implements ActionListener {
         funcButtons[6] = delButton;
         funcButtons[7] = clrButton;
         funcButtons[8] = negButton;
+        funcButtons[9] = sqrtButton;
 
         for (JButton button : funcButtons) {
             // Add action listener to button
@@ -73,44 +75,50 @@ public class Calculator implements ActionListener {
             numButtons[i].setFocusable(false);
         }
 
-        // Delete and Clear button is not in the grid layout on the frame
-        // Set up separate bound for both button
-        delButton.setBounds(50, 430, 130, 50);
-        clrButton.setBounds(220, 430, 130, 50);
-        frame.add(delButton);
-        frame.add(clrButton);
+        //// Delete and Clear button is not in the grid layout on the frame
+        //// Set up separate bound for both button
+        //delButton.setBounds(50, 430, 130, 50);
+        //clrButton.setBounds(220, 430, 130, 50);
+        //frame.add(delButton);
+        //frame.add(clrButton);
 
         // Set up panel
         panel = new JPanel(); // Create panel obj
-        panel.setBounds(50, 100, 300, 300); // Set up width, height and location for panel
+        panel.setBounds(50, 100, 300, 400); // Set up width, height and location for panel
         // Set panel layout to grid
         // Set rows and cols to 5 by 4, and add space on the side
         panel.setLayout(new GridLayout(5, 4, 10, 10));
 
         // Add button to the panel
         // row 1
+        panel.add(sqrtButton);
+        panel.add(clrButton);
+        panel.add(delButton);
+        panel.add(divButton);
+
+        // row 2
         panel.add(numButtons[1]);
         panel.add(numButtons[2]);
         panel.add(numButtons[3]);
-        panel.add(funcButtons[0]);
+        panel.add(addButton);
 
-        // row 2
+        // row 3
         panel.add(numButtons[4]);
         panel.add(numButtons[5]);
         panel.add(numButtons[6]);
-        panel.add(funcButtons[1]);
+        panel.add(subButton);
 
-        // row 3
+        // row 4
         panel.add(numButtons[7]);
         panel.add(numButtons[8]);
         panel.add(numButtons[9]);
-        panel.add(funcButtons[2]);
+        panel.add(mulButton);
 
-        // row 4
-        panel.add(funcButtons[4]);
+        // row 5
+        panel.add(negButton);
         panel.add(numButtons[0]);
-        panel.add(funcButtons[5]);
-        panel.add(funcButtons[3]);
+        panel.add(decButton);
+        panel.add(equButton);
 
         // add panel to frame
         frame.add(panel);
