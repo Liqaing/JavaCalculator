@@ -1,0 +1,1 @@
+JavaCalculator is a simple calculator which provide graphical user interface. It built using Java Swing and AWT which include feature such as number input, arithmetic operation and result display.
